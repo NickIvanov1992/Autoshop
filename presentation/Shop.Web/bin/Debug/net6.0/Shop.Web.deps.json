@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Shop.Web/1.0.0": {
+        "dependencies": {
+          "Shop": "1.0.0",
+          "Shop.Memory": "1.0.0"
+        },
+        "runtime": {
+          "Shop.Web.dll": {}
+        }
+      },
+      "Shop/1.0.0": {
+        "runtime": {
+          "Shop.dll": {}
+        }
+      },
+      "Shop.Memory/1.0.0": {
+        "dependencies": {
+          "Shop": "1.0.0"
+        },
+        "runtime": {
+          "Shop.Memory.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Shop.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shop/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shop.Memory/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
