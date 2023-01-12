@@ -8,6 +8,9 @@ namespace Shop
 {
     public interface ICarRepository
     {
-        Car[] GetByModel(string modelPart);
+        Car[] GetByYear(string year);
+        Car[] GetByModelOrBrand(string modelPartOrYear);
+        Car GetById(int id);
+        Car[] GetAllByIds(IEnumerable<int> carIds);
     }
 }
