@@ -4,15 +4,16 @@ namespace Shop.Web.Controllers
 {
     public class SearchController : Controller
     {
-        private readonly ICarRepository carRepository;
-            public SearchController (ICarRepository carRepository)
+        private readonly CarService carService;
+        public SearchController(CarService carService)
         {
-            this.carRepository = carRepository;
+            this.carService = carService;
         }
+    
         public IActionResult Index(string query)
         {
-            var cars = carRepository.GetByModel(query);
-            return View(cars);
+            var cars = carService.GetAllByQuery(query);
+            return View("Index",cars);
         }
     }
 }

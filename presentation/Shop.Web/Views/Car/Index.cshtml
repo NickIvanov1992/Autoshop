@@ -1,0 +1,14 @@
+﻿@model Car
+
+@{
+    ViewData["Brand"] = Model.Brand;
+}
+
+<h1>@Model.Brand</h1>
+<p><strong>@Model.Model</strong></p>
+<p>@Model.Description</p>
+<p>Цена<strong>@Model.Price</strong></p>
+<form action="@Url.Action("AddCar","Order")" method="post">
+    <input type ="hidden" name="id" value="@Model.Id" />
+    <button class="btn btn-success" type="submit">Записаться на тестДрайв</button>
+</form>
