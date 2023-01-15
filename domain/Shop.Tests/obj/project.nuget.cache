@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T300S3xnJxcxPC/nx7b9JhbIa1ojGLFhCzM1YwmXiWAY0ebxu3oOU+fkwvnN7nzedtjeNRu9KW25t50aNMSodQ==",
+  "dgSpecHash": "kuPv9AYuzqsOX8RmtMLOOLvL2N6rVgR51UehIfEyoTQ59HXpAksKP7meb07hxlbX0+z2JGIocjgTIx7g8ZcdiQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\domain\\Shop.Tests\\Shop.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Source\\Repos\\Autoshop\\domain\\Shop.Tests\\Shop.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",

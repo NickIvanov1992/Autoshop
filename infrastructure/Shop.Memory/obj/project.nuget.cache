@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SqjXgBhd9pzBA3+6unn/ff5NrU98u/i/+ULlH58UcaagE+0unrPUaXhVcZFu0PmKhOzEg4uSgDzyFpSih1+2cQ==",
+  "dgSpecHash": "+eEnYtPumTgN3PVlQ6hnd1cfxgWQeiDC3N+arPMl+YNgEQGSDX7s/xN9Lsr3ygxukda7k+QPdttYbYiYtgJGlw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\infrastructure\\Shop.Memory\\Shop.Memory.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Source\\Repos\\Autoshop\\infrastructure\\Shop.Memory\\Shop.Memory.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

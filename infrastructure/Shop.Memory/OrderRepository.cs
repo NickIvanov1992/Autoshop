@@ -24,8 +24,7 @@ namespace Shop.Memory
         }
 
         void IOrderRepository.Update(Order order)
-        {
-            ;
+        { 
         }
     }
 }
