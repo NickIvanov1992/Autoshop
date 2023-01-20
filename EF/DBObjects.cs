@@ -59,7 +59,7 @@ namespace Store.EF
                     Available = true,
                     Category = GetCategory["Грузовики"]
                 }
-
+     
                     );
             }
             storeDbContext.SaveChanges();

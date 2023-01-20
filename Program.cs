@@ -5,7 +5,9 @@ using System.Drawing.Text;
 using Microsoft.EntityFrameworkCore;
 using Store.Repository;
 using Microsoft.AspNetCore.Builder;
-
+using Store.Migrations;
+using Store.Models;
+using System.Runtime;
 
 var builder = WebApplication.CreateBuilder(args);
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -14,7 +16,16 @@ builder.Services.AddDbContext<StoreDbContext>(options => options.UseSqlServer(co
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IAllCars, CarRepository>();
 builder.Services.AddTransient<ICarsCategory, CategoryRepository>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(sp => Store.Models.StoreCart.GetCart(sp));
+builder.Services.AddMemoryCache();
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,7 +42,8 @@ using (var scope = app.Services.CreateScope())
     DBObjects.GetInitial(storeDbContext);
 }
 app.UseHttpsRedirection();
-app.UseStaticFiles();   
+app.UseStaticFiles();
+app.UseSession();
 
 app.UseRouting();
 

@@ -11,5 +11,6 @@ namespace Store.EF
         }
         public DbSet<Car> Car { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<StoreCartItem> StoreCartItem { get; set; }
     }
 }
