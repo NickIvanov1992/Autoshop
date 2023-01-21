@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Store.interfaces;
+using Store.Models;
 using Store.ViewModels;
 
 namespace Store.Controllers
@@ -13,14 +14,41 @@ namespace Store.Controllers
             this.allCars = allCars;
             this.carsCategories = carsCategories;
         }
-
-        public IActionResult Index()
+        [Route("Cars/Index")]
+        [Route("Cars/Index/{categ}")]
+        public ViewResult Index(string categ)
         {
-            ViewBag.Title = "Страница с автомобилями";
-            CarsListViewModel obj = new CarsListViewModel();
-            obj.GetAllCars = allCars.Cars;
-            obj.CurrentCategory = "Автомобили";
-            return View(obj);
+            string category = categ;
+            IEnumerable<Car> cars =null;
+            string currentCategory = "";
+
+            if (string.IsNullOrEmpty(category))
+            {
+                cars = allCars.Cars.OrderBy(i => i.Id);
+            }
+            else
+            {
+                if (string.Equals("cars", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    cars = allCars.Cars.Where(x => x.Category.CategoryName.Equals("Легковые автомобили")).OrderBy(x => x.Id);
+                    currentCategory = "Легковые";
+                }
+                else if (string.Equals("trucks", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    cars = allCars.Cars.Where(x => x.Category.CategoryName.Equals("Грузовики")).OrderBy(x => x.Id);
+                    currentCategory = "Грузовики";
+                }
+                
+            }
+            var carObj = new CarsListViewModel
+            {
+                GetAllCars = cars,
+                CurrentCategory = currentCategory
+            };
+        
+        
+        ViewBag.Title = "Страница с автомобилями";
+            return View(carObj);
         }
     }
 }
