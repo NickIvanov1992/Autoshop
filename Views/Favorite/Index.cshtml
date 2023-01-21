@@ -1,0 +1,14 @@
+﻿@model FavoriteViewModel
+
+
+<h1>Избранное</h1>
+
+<div class="row mt-5 mb-2">
+    @{
+        foreach (Car car in Model.favoriteCars)
+        {
+            @Html.Partial("AllCars",car)
+        }
+
+    }
+</div>

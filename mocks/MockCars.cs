@@ -55,6 +55,17 @@ namespace Store.mocks
                     isFavourite = true,
                     Available = true,
                     Category = carsCategory.AllCategories.First()
+                },
+                 new Car()
+                {
+                    Name = "Audi A7",
+                    ShortDescription = "Sportback (код кузова — 4G)",
+                    LongDescription = "пятидверный фастбэк класса Гран Туризмо, выпускаемый AUDI AG, на платформе А6, позиционируется в сегменте ниже Audi A8",
+                    Img = "/img/audi.jpg",
+                    Price =8000,
+                    isFavourite = true,
+                    Available = true,
+                    Category = carsCategory.AllCategories.First()
                 }
 
                 };
