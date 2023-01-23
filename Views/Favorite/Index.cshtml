@@ -1,0 +1,27 @@
+﻿@model FavoriteViewModel
+
+
+<h1>Избранное</h1>
+
+<div class="row mt-5 mb-2">
+    @{
+        foreach (Car car in Model.favoriteCars)
+        {
+            @Html.Partial("AllCars",car)
+        }
+
+    }
+</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>@User.Identity.Name</p>
+
+    <form method="post" asp-controller="Account" asp-action="Logout">
+        <input type="submit" value="Выход" />
+    </form>
+}
+else
+{
+    <a asp-controller="Account" asp-action="Login">Вход</a>
+    <a asp-controller="Account" asp-action="Register">Регистрация</a>
+}
