@@ -20,13 +20,14 @@ builder.Services.AddDbContext<StoreDbContext>(options => options.UseSqlServer(co
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IAllCars, CarRepository>();
 builder.Services.AddTransient<ICarsCategory, CategoryRepository>();
+builder.Services.AddTransient<IAllOrders,OrdersRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sp => Store.Models.StoreCart.GetCart(sp));
 builder.Services.AddMemoryCache();
 
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.IdleTimeout = TimeSpan.FromSeconds(600);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });

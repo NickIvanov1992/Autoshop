@@ -28,9 +28,9 @@ namespace Store.Controllers
             {
                 User user = new User { Email = model.Email, UserName = model.Email, Year = model.Year };
                 // добавляем пользователя
-          
-                 var  result = await _userManager.CreateAsync(user, model.Password);
-                
+
+                var result = await _userManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
                     // установка куки
@@ -91,4 +91,5 @@ namespace Store.Controllers
         }
     }
 }
+    
 

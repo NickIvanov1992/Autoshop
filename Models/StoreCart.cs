@@ -32,7 +32,8 @@ namespace Store.Models
             {
                 StoreCartId = StoreCartId,
                 car = car,
-                Price = car.Price
+                Price = car.Price,
+                
             }) ;
             storeDbContext.SaveChanges();
         }

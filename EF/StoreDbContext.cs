@@ -13,5 +13,7 @@ namespace Store.EF
         public DbSet<Car> Car { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<StoreCartItem> StoreCartItem { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
     }
 }
