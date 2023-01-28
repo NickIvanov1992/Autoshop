@@ -24,7 +24,7 @@ namespace Store.EF
                         Price = 25000,
                         isFavourite = true,
                         Available = true,
-                        Category = GetCategory["Легковые автомобили"]
+                        CategoryID = 2,
                     },
                    new Car
                    {
@@ -35,7 +35,7 @@ namespace Store.EF
                        Price = 8500,
                        isFavourite = false,
                        Available = true,
-                       Category = GetCategory["Легковые автомобили"]
+                       CategoryID = 2,
                    },
                 new Car
                 {
@@ -46,7 +46,7 @@ namespace Store.EF
                     Price = 8000,
                     isFavourite = false,
                     Available = false,
-                    Category = GetCategory["Грузовики"]
+                    CategoryID = 1,
                 },
                 new Car
                 {
@@ -57,7 +57,7 @@ namespace Store.EF
                     Price = 10000,
                     isFavourite = true,
                     Available = true,
-                    Category = GetCategory["Грузовики"]
+                    CategoryID = 1,
                 }
 
                     );

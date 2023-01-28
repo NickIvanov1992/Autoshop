@@ -21,7 +21,7 @@ namespace Store.mocks
                         Price = 25000,
                         isFavourite = true,
                         Available = true,
-                        Category = carsCategory.AllCategories.Last()
+                        CategoryID = 2,
                     },
                    new Car
                     {
@@ -32,7 +32,7 @@ namespace Store.mocks
                         Price =8500,
                         isFavourite = false,
                         Available = true,
-                        Category = carsCategory.AllCategories.Last()
+                        CategoryID = 2,
                     },
                 new Car
                 {
@@ -43,7 +43,7 @@ namespace Store.mocks
                     Price = 8000,
                     isFavourite = false,
                     Available = false,
-                    Category = carsCategory.AllCategories.First()
+                    CategoryID = 1,
                 },
                 new Car
                 {
@@ -54,7 +54,7 @@ namespace Store.mocks
                     Price = 10000,
                     isFavourite = true,
                     Available = true,
-                    Category = carsCategory.AllCategories.First()
+                    CategoryID = 1,
                 },
                  new Car()
                 {
@@ -65,7 +65,7 @@ namespace Store.mocks
                     Price =8000,
                     isFavourite = true,
                     Available = true,
-                    Category = carsCategory.AllCategories.First()
+                    CategoryID = 2,
                 }
 
                 };
@@ -75,6 +75,11 @@ namespace Store.mocks
         public IEnumerable<Car> GetFavoriteCars { get; set; }
 
         public Car GetObjectCar(int carId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveCar(Car car)
         {
             throw new NotImplementedException();
         }
