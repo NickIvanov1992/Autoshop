@@ -52,6 +52,7 @@ namespace Store.Controllers
         ViewBag.Title = "Страница с автомобилями";
             return View(carObj);
         }
-        
+
+
     }
 }

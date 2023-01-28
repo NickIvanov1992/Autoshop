@@ -16,6 +16,17 @@ namespace Store.Repository
 
         public IEnumerable<Car> GetFavoriteCars => storeDbContext.Car.Where(x => x.isFavourite);
 
+        public Car DeleteCar(int carId)
+        {
+            Car db = storeDbContext.Car.Find(carId);
+            if (db != null)
+            {
+                storeDbContext.Car.Remove(db);
+                storeDbContext.SaveChanges();
+            }
+            return db;
+        }
+
         public Car GetObjectCar(int carId) => storeDbContext.Car.FirstOrDefault(p => p.Id == carId);
 
         public void SaveCar(Car car)
@@ -34,6 +45,7 @@ namespace Store.Repository
                     db.Img = car.Img;
                     db.isFavourite = car.isFavourite;
                     db.ShortDescription = car.ShortDescription;
+
                 }
             }
             storeDbContext.SaveChanges();

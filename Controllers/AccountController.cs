@@ -7,6 +7,7 @@ using System.Diagnostics;
 
 namespace Store.Controllers
 {
+
     public class AccountController : Controller
     {
         private readonly UserManager<User> _userManager;

@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Core.Types;
 using Store.interfaces;
 using Store.Models;
 
 namespace Store.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
         IAllCars allCars;
@@ -38,5 +40,22 @@ namespace Store.Controllers
                 return View(car);
             }
         }
+        public ViewResult Create()
+        {
+            return View("Edit", new Car());
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int Id)
+        {
+            Car deletedCar = allCars.DeleteCar(Id);
+            if (deletedCar != null)
+            {
+                TempData["message"] = string.Format("Автомобиль \"{0}\" удален",
+                    deletedCar.Name);
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -74,6 +74,11 @@ namespace Store.mocks
         }
         public IEnumerable<Car> GetFavoriteCars { get; set; }
 
+        public Car DeleteCar(int carId)
+        {
+            throw new NotImplementedException();
+        }
+
         public Car GetObjectCar(int carId)
         {
             throw new NotImplementedException();

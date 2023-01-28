@@ -6,8 +6,9 @@
 }
 
 <h2>Редактирование автомобиля «@Model.Name»</h2>
+<div class ="panel">
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Admin"))
 {
     <div class="panel-body">
         @Html.HiddenFor(m => m.Id)
@@ -39,3 +40,4 @@
     })
     </div>
 }
+</div>

@@ -1,7 +1,7 @@
 ﻿@model FavoriteViewModel
 
 
-<h1>Избранное</h1>
+<h1>Рекомендации</h1>
 
 <div class="row mt-5 mb-2">
     @{
@@ -12,7 +12,7 @@
 
     }
 </div>
-@if (User.Identity.IsAuthenticated)
+@*@if (User.Identity.IsAuthenticated)
 {
     <p>@User.Identity.Name</p>
 
@@ -24,4 +24,4 @@ else
 {
     <a asp-controller="Account" asp-action="Login">Вход</a>
     <a asp-controller="Account" asp-action="Register">Регистрация</a>
-}
+}*@

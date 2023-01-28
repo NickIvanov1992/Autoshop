@@ -32,11 +32,18 @@
           <li class="nav-item">
             <a class="nav-link" href="/Cart/">Выбранные автомобили</a>
           </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Admin/Index">Aдмин</a>
+                        </li>
+
+                        
+
         </ul>
-        <form class="d-flex" role="search">
+      @*  <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        </form>*@
       </div>
     </div>
   </nav>
@@ -45,7 +52,22 @@
         @RenderBody()
     </div>
     <footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
+    @*<p class="float-end"><a href="#">Back to top</a></p>*@
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>@User.Identity.Name</p>
+
+            <form method="post" asp-controller="Account" asp-action="Logout">
+                <input type="submit" value="Выход" />
+
+            </form>
+
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login">Вход</a>
+            <a asp-controller="Account" asp-action="Register">Регистрация</a>
+        }
     <p>2023 Все права защищены, Inc. &middot; <a href="#">Соглашение</a></p>
   </footer>
     <script src ="~/js/bootstrap.min.js"></script>
