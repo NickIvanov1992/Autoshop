@@ -8,18 +8,22 @@ namespace Store.Controllers
 {
     public class CarsController : Controller
     {
+        private readonly ILogger logger;
 
         private readonly IAllCars allCars;
         private readonly ICarsCategory carsCategories;
-        public CarsController(IAllCars allCars, ICarsCategory carsCategories)
+        public CarsController(IAllCars allCars, ICarsCategory carsCategories, ILogger<CarsController> logger)
         {
             this.allCars = allCars;
             this.carsCategories = carsCategories;
+            this.logger = logger;
         }
+
         [Route("Cars/Index")]
         [Route("Cars/Index/{categ}")]
         public ViewResult Index(string categ)
         {
+
             string category = categ;
             IEnumerable<Car> cars =null;
             string currentCategory = "";
@@ -50,6 +54,7 @@ namespace Store.Controllers
         
         
         ViewBag.Title = "Страница с автомобилями";
+            logger.LogInformation("Test Message");
             return View(carObj);
         }
 
