@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Store.Models;
+using domain.store;
+
 
 namespace Store.EF
 {
@@ -10,6 +11,7 @@ namespace Store.EF
         {
 
         }
+        
         public DbSet<Car> Car { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<StoreCartItem> StoreCartItem { get; set; }

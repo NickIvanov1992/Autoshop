@@ -1,4 +1,5 @@
-﻿namespace Store.Models
+﻿
+namespace Store.Models
 {
     public class StoreCartItem
     {

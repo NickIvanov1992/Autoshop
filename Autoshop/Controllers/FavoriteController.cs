@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Store.interfaces;
-using Store.Models;
-using Store.ViewModels;
+using domain.store.interfaces;
+using domain.store;
+using application.StoreApp.ViewModels;
 
 namespace Store.Controllers
 {

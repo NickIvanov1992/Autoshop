@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Store.Models;
-using Store.ViewModels;
+using domain.store;
+using application.StoreApp.ViewModels;
 
 namespace Store.Controllers
 {

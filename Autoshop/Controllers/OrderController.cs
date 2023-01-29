@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Store.interfaces;
-using Store.Models;
+using domain.store.interfaces;
+using domain.store;
 
 namespace Store.Controllers
 {

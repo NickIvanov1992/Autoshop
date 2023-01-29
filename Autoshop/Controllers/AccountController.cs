@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Store.Models;
-using Store.ViewModels;
+using domain.store;
+using application.StoreApp.ViewModels;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 

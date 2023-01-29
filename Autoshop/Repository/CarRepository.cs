@@ -3,6 +3,7 @@ using Store.EF;
 using Store.interfaces;
 using Store.Models;
 
+
 namespace Store.Repository
 {
     public class CarRepository : IAllCars
@@ -12,9 +13,9 @@ namespace Store.Repository
         {
             this.storeDbContext = storeDbContext;
         }
-        public IEnumerable<Car> Cars => storeDbContext.Car;
+        public IEnumerable<store.Car> Cars => storeDbContext.Car;
 
-        public IEnumerable<Car> GetFavoriteCars => storeDbContext.Car.Where(x => x.isFavourite);
+        public IEnumerable<store.Car> GetFavoriteCars => storeDbContext.Car.Where(x => x.isFavourite);
 
         public Car DeleteCar(int carId)
         {

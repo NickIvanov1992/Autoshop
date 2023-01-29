@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 //using Store.Migrations;
-using Store.Repository;
-using Store.Models;
-using Store.ViewModels;
-using Store.interfaces;
+using DataMemory.StoreDataMemory;
+using domain.store;
+using application.StoreApp.ViewModels;
+using domain.store.interfaces;
 
 namespace Store.Controllers
 {

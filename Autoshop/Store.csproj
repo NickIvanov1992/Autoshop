@@ -7,6 +7,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="EF\**" />
+    <Compile Remove="interfaces\**" />
+    <Compile Remove="Migrations\**" />
+    <Compile Remove="mocks\**" />
+    <Compile Remove="Models\**" />
+    <Compile Remove="Repository\**" />
+    <Compile Remove="ViewModels\**" />
+    <Content Remove="EF\**" />
+    <Content Remove="interfaces\**" />
+    <Content Remove="Migrations\**" />
+    <Content Remove="mocks\**" />
+    <Content Remove="Models\**" />
+    <Content Remove="Repository\**" />
+    <Content Remove="ViewModels\**" />
+    <EmbeddedResource Remove="EF\**" />
+    <EmbeddedResource Remove="interfaces\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="mocks\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Repository\**" />
+    <EmbeddedResource Remove="ViewModels\**" />
+    <None Remove="EF\**" />
+    <None Remove="interfaces\**" />
+    <None Remove="Migrations\**" />
+    <None Remove="mocks\**" />
+    <None Remove="Models\**" />
+    <None Remove="Repository\**" />
+    <None Remove="ViewModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="JSON" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
@@ -25,6 +56,12 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\application\StoreApp\StoreApp.csproj" />
+    <ProjectReference Include="..\DataMemory\StoreDataMemory\StoreDataMemory.csproj" />
+    <ProjectReference Include="..\domain\store\store.csproj" />
   </ItemGroup>
 
 </Project>
