@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="mocks\**" />
+    <Content Remove="mocks\**" />
+    <EmbeddedResource Remove="mocks\**" />
+    <None Remove="mocks\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="JSON" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
