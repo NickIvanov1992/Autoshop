@@ -45,6 +45,7 @@ namespace Store.Repository
                     db.Img = car.Img;
                     //db.ImgMimeType = car.ImgMimeType;
                     db.isFavourite = car.isFavourite;
+                    db.Available = car.Available;
                     db.ShortDescription = car.ShortDescription;
 
                 }

@@ -28,6 +28,9 @@ namespace Store.Repository
                     Price = v.car.Price  
                 };
                 storeDbContext.OrderDetails.Add(orderDetails);
+
+                //var obj = storeDbContext.Car.Where(i => i.Id == orderDetails.CarId);
+                v.car.Available = v.car.Available - 1;
             }
             storeDbContext.SaveChanges();
                 

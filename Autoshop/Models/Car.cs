@@ -39,8 +39,8 @@ namespace Store.Models
         [Required(ErrorMessage = "True либо False")]
         public bool isFavourite { get; set; }      //  избранное
         [Display(Name = "Наличие авто в парке")]
-        [Required(ErrorMessage = "True либо False")]
-        public bool Available { get; set; }            // наличие авто в парке
+        
+        public int Available { get; set; }            // наличие авто в парке
 
         [Display(Name = "Категория ТС(1 - грузовой 2-легковой)")]
         [Required(ErrorMessage = "Отсутствует категория ТС")]

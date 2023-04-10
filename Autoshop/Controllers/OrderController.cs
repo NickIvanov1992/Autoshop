@@ -37,6 +37,7 @@ namespace Store.Controllers
             if (ModelState.IsValid)
             {
                 allOrders.CreateOrder(order);
+                
                 return RedirectToAction("Complete");
             }
             return View(order);

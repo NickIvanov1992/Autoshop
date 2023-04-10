@@ -22,7 +22,7 @@ namespace Store.EF
                         //Img = Convert.ToBase64String(File.ReadAllBytes("/img/corolla.jpg")),
                         Price = 25000,
                         isFavourite = true,
-                        Available = true,
+                 //       Available = true,
                         CategoryID = 2,
                     },
                    new Car
@@ -33,7 +33,7 @@ namespace Store.EF
                        //Img = Convert.ToBase64String(File.ReadAllBytes("/img/mercedes.jpg")),
                        Price = 8500,
                        isFavourite = false,
-                       Available = true,
+               //        Available = true,
                        CategoryID = 2,
                    },
                 new Car
@@ -44,7 +44,7 @@ namespace Store.EF
                     //Img = Convert.ToBase64String(File.ReadAllBytes("/img/kamaz.jpg")),
                     Price = 8000,
                     isFavourite = false,
-                    Available = false,
+                //    Available = false,
                     CategoryID = 1,
                 },
                 new Car
@@ -55,7 +55,7 @@ namespace Store.EF
                     //Img = Convert.ToBase64String(File.ReadAllBytes("/img/scania.jpg")),
                     Price = 10000,
                     isFavourite = true,
-                    Available = true,
+                //    Available = true,
                     CategoryID = 1,
                 }
 
