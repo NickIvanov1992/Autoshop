@@ -34,13 +34,19 @@ namespace Store.Models
                 car = car,
                 Price = car.Price,
                 
-            }) ;
+            }) ;    
             storeDbContext.SaveChanges();
         }
         public List<StoreCartItem> GetStoreItems()
         {
             return storeDbContext.StoreCartItem.Where(c => c.StoreCartId == StoreCartId).Include(x => x.car).ToList();
         }
+        public void RemoveCar(StoreCartItem deleteItem)
+        {
+            storeDbContext.StoreCartItem.Remove(deleteItem);
+            storeDbContext.SaveChanges();
+        }
+        
 
     }
 }

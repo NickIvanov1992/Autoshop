@@ -32,42 +32,55 @@
           <li class="nav-item">
             <a class="nav-link" href="/Cart/">Выбранные автомобили</a>
           </li>
+                        @if (User.Identity.Name == "admin@mail.ru")
+                        {
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Admin/Index">Aдмин</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Index">Aдмин</a>
+                            </li>
+                        }
+                    </ul>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                        <h5><font color="white">@User.Identity.Name</font></h5>
+                        <p>" "</p>
 
-                        
+                            <form method="post" asp-controller="Account" asp-action="Logout">
+                            <button class="btn btn-danger me-3" type="submit">Выход</button>
 
-        </ul>
-      @*  <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>*@
+                            </form>
+
+
+                        }
+                        else
+                        {
+                            <a asp-controller="Account" asp-action="Login">
+                            <button class="btn btn-success me-3" type="submit">Вход</button>
+                        </a>
+    
+                        }
+
+                    
+                    <form class="d-flex" role="search" asp-controller = "Search" asp-action="Index">
+                        <input class="form-control me-2" type="search" name = "carName" placeholder="Марка и модель авто" aria-label="search">
+                        <button class="btn btn-outline-light" type="submit">Поиск</button>
+                    </form>
+                    </ul>
       </div>
     </div>
   </nav>
 </header>
+
     <div class="container mt-5">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success">@TempData["message"]</div>
+        }
         @RenderBody()
     </div>
     <footer class="container">
     @*<p class="float-end"><a href="#">Back to top</a></p>*@
-        @if (User.Identity.IsAuthenticated)
-        {
-            <p>@User.Identity.Name</p>
-
-            <form method="post" asp-controller="Account" asp-action="Logout">
-                <input type="submit" value="Выход" />
-
-            </form>
-
-        }
-        else
-        {
-            <a asp-controller="Account" asp-action="Login">Вход</a>
-            <a asp-controller="Account" asp-action="Register">Регистрация</a>
-        }
+       
     <p>2023 Все права защищены, Inc. &middot; <a href="#">Соглашение</a></p>
   </footer>
     <script src ="~/js/bootstrap.min.js"></script>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 
 namespace Store.Models
 {
@@ -22,10 +23,13 @@ namespace Store.Models
         public string LongDescription { get; set; }
 
         [Display(Name = "Изображение")]
-        [Required(ErrorMessage = "Отсутствует изображение")]
-        public string Img { get; set; }          // фото товара  Url адрес
+       // [Required(ErrorMessage = "Отсутствует изображение")]
+       // public string Img { get; set; }          // фото товара  Url адрес
 
-        
+        public byte[]? Img { get; set; }
+  //      [Required]
+    //    public string? ImgMimeType { get; set; } 
+
         [Display(Name = "Цена")]
         [Required]
         [Range(0.01, double.MaxValue, ErrorMessage = "Цена не соответствует")]

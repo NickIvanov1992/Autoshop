@@ -6,8 +6,21 @@
         <div class="alert alert-warning mt-3">
         <b>Автомобиль:</b> @m.car.Name<br />
         <b>Стоимость:</b> @m.car.Price.ToString("c")
+
+            <div class="float-sm-right">
+            @using (Html.BeginForm("RemoveCar", "Cart"))
+            {
+                @Html.Hidden("Id", m.car.Id)
+                
+                <input type="submit"
+               class="btn btn-warning me-3"
+                 value="Удалить" />
+                    
+            }
+            </div>
         </div>
     }
+        
     <hr />
     <a class="btn btn-danger mb-5" asp-controller="Order" asp-action="Checkout">Записаться на просмотр</a>
 </div>

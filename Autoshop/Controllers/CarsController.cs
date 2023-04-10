@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using Store.interfaces;
 using Store.Models;
 using Store.ViewModels;
+using System.Drawing;
+//using System.Web.Mvc;
 
 namespace Store.Controllers
 {
@@ -51,13 +54,13 @@ namespace Store.Controllers
                 GetAllCars = cars,
                 CurrentCategory = currentCategory
             };
+            
         
         
         ViewBag.Title = "Страница с автомобилями";
             logger.LogInformation("Test Message");
             return View(carObj);
         }
-
-
+       
     }
 }

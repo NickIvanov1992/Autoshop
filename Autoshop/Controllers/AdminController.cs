@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Core.Types;
 using Store.interfaces;
 using Store.Models;
+using System.Web;
 
 namespace Store.Controllers
 {
@@ -19,6 +20,7 @@ namespace Store.Controllers
         {
             return View(allCars.Cars);
         }
+       
         public ViewResult Edit(int Id)
         {
             Car car = allCars.Cars
@@ -26,10 +28,20 @@ namespace Store.Controllers
             return View(car);
         }
         [HttpPost]
-        public ActionResult Edit(Car car)
+        public ActionResult Edit(Car car, IFormFile uploadedimage)
         {
             if (ModelState.IsValid)
             {
+                if (uploadedimage != null)
+                {
+                   // car.ImgMimeType = uploadedimage.ContentType;
+                    ////car.Img = new byte[uploadedimage.Length];
+                     using (var binaryReader = new BinaryReader(uploadedimage.OpenReadStream()))
+                    {
+                        car.Img = binaryReader.ReadBytes((int)uploadedimage.Length);
+                    }
+                    //uploadedimage.OpenReadStream();
+                }
                 allCars.SaveCar(car);
                 TempData["message"] = string.Format("Автомобиль \"{0}\" изменен", car.Name);
                 return RedirectToAction("Index");

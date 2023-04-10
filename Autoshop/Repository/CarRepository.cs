@@ -43,6 +43,7 @@ namespace Store.Repository
                     db.Price = car.Price;
                     db.CategoryID = car.CategoryID;
                     db.Img = car.Img;
+                    //db.ImgMimeType = car.ImgMimeType;
                     db.isFavourite = car.isFavourite;
                     db.ShortDescription = car.ShortDescription;
 

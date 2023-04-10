@@ -8,30 +8,120 @@
 <h2>Редактирование автомобиля «@Model.Name»</h2>
 <div class ="panel">
 
-@using (Html.BeginForm("Edit", "Admin"))
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Редактирование автомобиля «@Model.Name»</h3>
+    </div>
+
+@using (Html.BeginForm("Edit", "Admin",
+        FormMethod.Post,new { enctype = "multipart/form-data" }))
 {
     <div class="panel-body">
         @Html.HiddenFor(m => m.Id)
         @foreach (var property in ViewData.ModelMetadata.Properties)
-        {
-            if (property.PropertyName != "Id")
+            {
+                switch (property.PropertyName)
+                {
+                    case "Id" :
+                    case "Img" :
+                    case "ImgMimeType" :
+                        break;
+                        default:
+                        <div class="form-group">
+                            <label>@(property.DisplayName ?? property.PropertyName)</label>
+                            @if (property.PropertyName == "Description")
+                            {
+                                @Html.TextArea(property.PropertyName, null,
+                                 new { @class = "form-control", rows = 5 })
+                            }
+                            else
+                            {
+                                @Html.TextBox(property.PropertyName,null,
+                                new {@class = "form-control"})
+                            }
+                            @Html.ValidationMessage(property.PropertyName)
+                            </div>
+                            break;
+                }
+            }
+            @*<div class="form-group" enctype = " multipart /form-data">
+                <div style="position:relative;">
+                    <label>Картинка</label>
+                    <a class='btn' href='javascript:;'>
+                        Выберите файл...
+                        <input type="file" name="Image" size="40"
+                           style="position:absolute;z-index:2;top:0;
+                                left:0;filter: alpha(opacity=0); opacity:0;
+                                background-color:transparent;color:transparent;"
+                           onchange='$("#upload-file-info").html($(this).val());'>
+                    </a>
+                    <span class='label label-info' id="upload-file-info"></span>
+                </div>*@
+
+            <h3>Выберите файл для загрузки</h3>
+            <form asp-action="Edit" asp-controller="Admin" method="post" enctype="multipart/form-data">
+                <input type="file" name="uploadedimage" /><br>
+                <input type="submit" value="Загрузить" />
+            </form>
+                @if (Model.Img == null)
+                {
+                    <div class="form-control-static">Нет картинки</div>
+                }
+                else
+                {
+                   
+                    <img class="img-thumbnail"
+                 src="@Url.Action("GetImage", "Cars",new{Model.Id})" />
+                }
+            </div>
+        @*</div>*@
+            @*
+                if (property.PropertyName != "Id" && property.PropertyName != "Img" && property.PropertyName != "ImgMimeType")
             {
                 <div class="form-group">
                     <label>@(property.DisplayName ?? property.PropertyName)</label>
                     @if (property.PropertyName == "Description")
                     {
                         @Html.TextArea(property.PropertyName, null,
-        new { @class = "form-control", rows = 5 })
+                         new { @class = "form-control", rows = 5 })
                     }
+
                     else
                     {
                         @Html.TextBox(property.PropertyName, null,
-        new { @class = "form-control" })
+                           new { @class = "form-control" })
                     }
-                </div>
-            }
-        }
-    </div>
+                    </div>
+                }
+                else if (property.PropertyName == "Img")
+                {
+                        <div style="position:relative;">
+                            <label>Картинка</label>
+                            <a class='btn' href='javascript:;'>
+                                Выберите файл...
+                                <input type="file" name="Image" size="40"
+                           style="position:absolute;z-index:2;top:0;
+                                left:0;filter: alpha(opacity=0); opacity:0;
+                                background-color:transparent;color:transparent;"
+                           onchange='$("#upload-file-info").html($(this).val());'>
+                            </a>
+                            <span class='label label-info' id="upload-file-info"></span>
+                        </div>
+                    @if (Model.Img == null)
+                    {
+                        <div class="form-control-static">Нет картинки</div>
+                    }
+                    else
+                    {
+                        <img class="img-thumbnail" width="150" height="150"
+             src="@Url.Action("GetImage", "Cars",
+                        new { Model.Id })" />
+                    }
+                        }
+                
+            }*@
+    
     <div class="panel-footer">
         <input type="submit" value="Сохранить" class="btn btn-primary" />
         @Html.ActionLink("Отменить изменения и вернуться к списку", "Index", null, new

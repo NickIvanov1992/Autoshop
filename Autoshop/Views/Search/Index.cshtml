@@ -1,0 +1,10 @@
+﻿<h1>Результаты поиска</h1>
+<div class="row mt-5 mb-2">
+    @{
+        foreach (Car car in Model.GetSearchCars)
+        {
+            @Html.Partial("AllCars",car)
+        }
+
+    }
+</div>

@@ -4,6 +4,9 @@ using Store.Repository;
 using Store.Models;
 using Store.ViewModels;
 using Store.interfaces;
+using Microsoft.AspNetCore.Razor.Hosting;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Http.Extensions;
 
 namespace Store.Controllers
 {
@@ -27,16 +30,43 @@ namespace Store.Controllers
             };
             return View(obj);
         }
+        [HttpGet]
         public RedirectToActionResult AddToCart (int id)
         {
             var item = carRepository.Cars.FirstOrDefault(c => c.Id == id);
-            if (item != null)
+            var items = storeCart.GetStoreItems();
+            bool isExsist = false;
+            foreach (var i in items)
+            {
+                if (i.car.Id == id)
+                {
+                    isExsist = true;
+                }
+            }
+            if (isExsist == true || item == null)
+            {
+                //string adress = HttpContext.Request;
+                TempData["message"] = string.Format("Автомобиль уже добавлен");
+                return RedirectToAction("Index","Cars");
+            }
+            else
             {
                 storeCart.AddToCart(item);
             }
             return RedirectToAction("Index");
 
         }
-
+        public RedirectToActionResult RemoveCar(int id)
+        {
+            var items = storeCart.GetStoreItems();
+            foreach(var item in items)
+            {
+                if (id == item.car.Id)
+                {
+                    storeCart.RemoveCar(item);
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
