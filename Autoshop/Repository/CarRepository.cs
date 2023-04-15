@@ -13,9 +13,7 @@ namespace Store.Repository
             this.storeDbContext = storeDbContext;
         }
         public IEnumerable<Car> Cars => storeDbContext.Car;
-
-        public IEnumerable<Car> GetFavoriteCars => storeDbContext.Car.Where(x => x.isFavourite);
-
+        public IEnumerable<Car> GetFavoriteCars => storeDbContext.Car.Where(x => x.isFavourite); // получить избранные авто
         public Car DeleteCar(int carId)
         {
             Car db = storeDbContext.Car.Find(carId);
@@ -26,9 +24,7 @@ namespace Store.Repository
             }
             return db;
         }
-
         public Car GetObjectCar(int carId) => storeDbContext.Car.FirstOrDefault(p => p.Id == carId);
-
         public void SaveCar(Car car)
         {
             if (car.Id == 0)
@@ -39,15 +35,12 @@ namespace Store.Repository
                 if (car != null)
                 {
                     db.Name = car.Name;
-                    db.LongDescription = car.LongDescription;
                     db.Price = car.Price;
                     db.CategoryID = car.CategoryID;
                     db.Img = car.Img;
-                    //db.ImgMimeType = car.ImgMimeType;
                     db.isFavourite = car.isFavourite;
                     db.Available = car.Available;
                     db.ShortDescription = car.ShortDescription;
-
                 }
             }
             storeDbContext.SaveChanges();

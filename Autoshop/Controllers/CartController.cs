@@ -7,6 +7,7 @@ using Store.interfaces;
 using Microsoft.AspNetCore.Razor.Hosting;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Store.Controllers
 {
@@ -45,16 +46,13 @@ namespace Store.Controllers
             }
             if (isExsist == true || item == null)
             {
-                //string adress = HttpContext.Request;
                 TempData["message"] = string.Format("Автомобиль уже добавлен");
-                return RedirectToAction("Index","Cars");
             }
             else
             {
                 storeCart.AddToCart(item);
             }
             return RedirectToAction("Index");
-
         }
         public RedirectToActionResult RemoveCar(int id)
         {

@@ -13,10 +13,7 @@ namespace Store.Controllers
         {
             this.allCars = allCars;
         }
-        //public IActionResult Index()
-        //{
-        //    return View("SearchResult");
-        //}
+
         [Route("Search/SearchResult")]
         [Route("Search/SearchResult/{carName}")]
         public IActionResult Index(string carName)
@@ -32,7 +29,7 @@ namespace Store.Controllers
             else
             {
                 searchCars = allCars.Cars.Where(x => x.Name.ToLower().Contains(carName.ToLower()));
-                    searchResult = "Результаты поиска";
+                searchResult = "Результаты поиска";
             }
             var carObj = new CarsListViewModel
             {

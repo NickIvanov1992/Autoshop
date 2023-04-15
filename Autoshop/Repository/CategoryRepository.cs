@@ -11,7 +11,6 @@ namespace Store.Repository
         {
             this.storeDbContext = storeDbContext;
         }
-
         public IEnumerable<Category> AllCategories => storeDbContext.Categories;
     }
 }

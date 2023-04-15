@@ -8,9 +8,17 @@
 
   <ItemGroup>
     <Compile Remove="mocks\**" />
+    <Compile Remove="Views\Home\**" />
     <Content Remove="mocks\**" />
+    <Content Remove="Views\Home\**" />
     <EmbeddedResource Remove="mocks\**" />
+    <EmbeddedResource Remove="Views\Home\**" />
     <None Remove="mocks\**" />
+    <None Remove="Views\Home\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\HomeController.cs" />
   </ItemGroup>
 
   <ItemGroup>

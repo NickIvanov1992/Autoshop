@@ -28,19 +28,14 @@ namespace Store.Controllers
             return View(car);
         }
         [HttpPost]
-        public ActionResult Edit(Car car, IFormFile uploadedimage)
+        public ActionResult Edit(Car car, IFormFile uploadedimage)   // загрузить изображение
         {
             if (ModelState.IsValid)
             {
                 if (uploadedimage != null)
                 {
-                   // car.ImgMimeType = uploadedimage.ContentType;
-                    ////car.Img = new byte[uploadedimage.Length];
                      using (var binaryReader = new BinaryReader(uploadedimage.OpenReadStream()))
-                    {
                         car.Img = binaryReader.ReadBytes((int)uploadedimage.Length);
-                    }
-                    //uploadedimage.OpenReadStream();
                 }
                 allCars.SaveCar(car);
                 TempData["message"] = string.Format("Автомобиль \"{0}\" изменен", car.Name);
@@ -48,7 +43,7 @@ namespace Store.Controllers
             }
             else
             {
-                // Что-то не так со значениями данных
+                // если введены неверные данные
                 return View(car);
             }
         }

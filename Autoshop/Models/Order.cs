@@ -39,7 +39,5 @@ namespace Store.Models
         [ScaffoldColumn(false)]
         public DateTime orderTime { get; set; }
 
-       // public List<OrderDetails> orderDetails { get; set; }
-
     }
 }

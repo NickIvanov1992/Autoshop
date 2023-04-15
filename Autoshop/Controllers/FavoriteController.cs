@@ -16,7 +16,7 @@ namespace Store.Controllers
         {
             var primaryCars = new FavoriteViewModel
             {
-                favoriteCars = carRepository.GetFavoriteCars
+                favoriteCars = carRepository.GetFavoriteCars.Where(x => x.Available > 0)   // есть ли авто в парке?
             };
             return View(primaryCars);
         }

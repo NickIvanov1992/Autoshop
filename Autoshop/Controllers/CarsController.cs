@@ -26,7 +26,6 @@ namespace Store.Controllers
         [Route("Cars/Index/{categ}")]
         public ViewResult Index(string categ)
         {
-
             string category = categ;
             IEnumerable<Car> cars =null;
             string currentCategory = "";
@@ -46,17 +45,14 @@ namespace Store.Controllers
                 {
                     cars = allCars.Cars.Where(x => x.CategoryID == 1).OrderBy(x => x.Id);
                     currentCategory = "Грузовики";
-                }
-                
+                }           
             }
             var carObj = new CarsListViewModel
             {
-                GetAllCars = cars,
+                GetAllCars = cars.Where(x => x.Available > 0),   // есть ли авто в парке
                 CurrentCategory = currentCategory
             };
-            
-        
-        
+
         ViewBag.Title = "Страница с автомобилями";
             logger.LogInformation("Test Message");
             return View(carObj);
