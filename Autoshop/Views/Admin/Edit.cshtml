@@ -34,15 +34,15 @@
                             else if (property.PropertyName == "isFavourite")
                             {
                                     <p>
-                                    <input type="radio" name="isFavourite" value=True> Да<Br>
-                                    <input type="radio" name="isFavourite" value=False> Нет<Br>
+                                    <input type="radio" name="isFavourite" value=True checked="checked">Да<Br>
+                                    <input type="radio" name="isFavourite" value=False >Нет<Br>
                                     </p>
                             }
                             else if (property.PropertyName == "CategoryID")
                             {
                                 <p>
-                                    <input type="radio" name="CategoryID" value="2">Легковой<Br>
-                                    <input type="radio" name="CategoryID" value="1">Грузовой<Br>
+                                    <input type="radio" name="CategoryID" value="2" checked="checked">Легковой<Br>
+                                    <input type="radio" name="CategoryID" value="1" >Грузовой<Br>
                                 </p>
                             }
                             else
@@ -58,7 +58,7 @@
             
             <h3>Выберите файл для загрузки</h3>
             <form asp-action="Edit" asp-controller="Admin" method="post" enctype="multipart/form-data">
-                <input type="file" name="uploadedimage" /><br>      
+                <input type="file" name="uploadedimage"  /><br>
             </form>
                 @if (Model.Img == null)
                 {
@@ -66,8 +66,8 @@
                 }
                 else
                 {
-                    <img class="img-thumbnail"
-                 src="@Url.Action("GetImage", "Cars",new{Model.Id})" />
+                <img class="img-thumbnail" img width="10%" height="auto" 
+                src ="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Img))"/>
                 }
  
     

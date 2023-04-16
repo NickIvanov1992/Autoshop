@@ -5,5 +5,15 @@
     <h2>@Model.Name</h2>
     <p>@Model.ShortDescription</p>
     <p>Стоимость: @Model.Price.ToString("c")</p>
-    <p><a class="btn btn-warning" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.Id">Выбрать автомобиль</a></p>
+    
+    <p>
+        @if(Model.Available > 0)
+        {
+            <a class="btn btn-warning" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.Id">Выбрать автомобиль</a>
+        }
+        else
+        {
+        <h3>В данный момент автомобиль отсутствует в парке</h3>
+        }
+    </p>
 </div>

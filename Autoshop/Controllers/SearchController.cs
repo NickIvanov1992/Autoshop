@@ -21,14 +21,14 @@ namespace Store.Controllers
             IEnumerable<Car> searchCars = null;
             string searchResult = "";
 
-            if (string.IsNullOrEmpty(carName))
+            if (string.IsNullOrEmpty(carName) )
             {
                 searchCars = allCars.Cars.OrderBy(i => i.Id);
                 searchResult = "Автомобиль отсутствует";
             }
             else
             {
-                searchCars = allCars.Cars.Where(x => x.Name.ToLower().Contains(carName.ToLower()));
+                searchCars = allCars.Cars.Where(x => x.Name.ToLower().Contains(carName.ToLower()) );
                 searchResult = "Результаты поиска";
             }
             var carObj = new CarsListViewModel

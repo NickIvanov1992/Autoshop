@@ -26,6 +26,7 @@ namespace Store.Controllers
         [Route("Cars/Index/{categ}")]
         public ViewResult Index(string categ)
         {
+
             string category = categ;
             IEnumerable<Car> cars =null;
             string currentCategory = "";
