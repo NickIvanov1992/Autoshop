@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Store.EF;
+﻿using Store.EF;
 using Store.interfaces;
 using Store.Models;
 

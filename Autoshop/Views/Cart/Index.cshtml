@@ -3,7 +3,10 @@
 <div class="container">
     @foreach (var m in Model.storeCart.ListItems)
     {
+        
         <div class="alert alert-warning mt-3">
+            <img class="img-thumbnail" img width="10%" height="auto"
+             src="data:image/jpeg;base64,@(Convert.ToBase64String(m.car.Img))" /> <br/>
         <b>Автомобиль:</b> @m.car.Name<br />
         <b>Стоимость:</b> @m.car.Price.ToString("c")
 

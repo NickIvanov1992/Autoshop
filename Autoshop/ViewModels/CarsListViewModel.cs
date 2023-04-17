@@ -1,5 +1,4 @@
 ﻿using Store.Models;
-using System.ComponentModel.DataAnnotations;
 
 namespace Store.ViewModels
 {

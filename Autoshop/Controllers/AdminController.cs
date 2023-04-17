@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NuGet.Protocol.Core.Types;
 using Store.interfaces;
 using Store.Models;
-using System.Web;
 
 namespace Store.Controllers
 {

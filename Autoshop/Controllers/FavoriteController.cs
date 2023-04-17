@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Store.interfaces;
-using Store.Models;
 using Store.ViewModels;
 
 namespace Store.Controllers

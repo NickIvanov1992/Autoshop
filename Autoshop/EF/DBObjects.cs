@@ -18,7 +18,6 @@ namespace Store.EF
                     {
                         Name = "Toyota Corolla",
                         ShortDescription = "4-ех дверный седан для всей семьи ",
-                   //     Img = Convert.ToBase64String(File.ReadAllBytes("/img/corolla.jpg")),
                         Price = 25000,
                         isFavourite = true,
                         Available = 1,
@@ -28,7 +27,6 @@ namespace Store.EF
                    {
                        Name = "Mercedes_Benz S-klass ",
                        ShortDescription = "4-ех дверный седан бизнесс класса ",
-                   //    Img = Convert.ToBase64String(File.ReadAllBytes("/img/mercedes.jpg")),
                        Price = 8500,
                        isFavourite = false,
                        Available = 1,
@@ -38,7 +36,6 @@ namespace Store.EF
                 {
                     Name = "КамАЗ-54907",
                     ShortDescription = "Трейлер Отечественного производства",
-                  //  Img = Convert.ToBase64String(File.ReadAllBytes("/img/kamaz.jpg")),
                     Price = 8000,
                     isFavourite = false,
                     Available = 1,
@@ -48,7 +45,6 @@ namespace Store.EF
                 {
                     Name = "Scania 730-s",
                     ShortDescription = "Шведский тягач для дальнемагистральных перевозок",
-                   // Img = Convert.ToBase64String(File.ReadAllBytes("/img/scania.jpg")),
                     Price = 10000,
                     isFavourite = true,
                     Available = 1,

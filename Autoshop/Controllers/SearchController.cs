@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Store.interfaces;
 using Store.Models;
 using Store.ViewModels;
