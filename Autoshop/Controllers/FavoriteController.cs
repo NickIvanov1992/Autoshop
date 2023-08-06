@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Store.interfaces;
 using Store.ViewModels;
 
@@ -17,7 +18,10 @@ namespace Store.Controllers
             {
                 favoriteCars = carRepository.GetFavoriteCars.Where(x => x.Available > 0)   // есть ли авто в парке?
             };
-            return View(primaryCars);
+
+                return View(primaryCars);
         }
+
+
     }
 }

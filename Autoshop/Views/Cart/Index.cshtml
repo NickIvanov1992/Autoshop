@@ -1,5 +1,7 @@
 ﻿@model CartViewModel
-
+@{
+    ViewData["Title"]="Выбранные автомобили";
+}
 <div class="container">
     @foreach (var m in Model.storeCart.ListItems)
     {
