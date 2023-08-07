@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
@@ -39,6 +38,11 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\domain\Shop.Domain\Shop.Domain.csproj" />
+    <ProjectReference Include="..\..\infrastructure.git\Shop.Memory\Shop.Data.EF.csproj" />
   </ItemGroup>
 
 </Project>

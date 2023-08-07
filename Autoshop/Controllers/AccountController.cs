@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Store.Models;
+using Shop.Data.EF;
 using Store.ViewModels;
-using System.Data.Entity.Validation;
-using System.Diagnostics;
+
 
 namespace Store.Controllers
 {

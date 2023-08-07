@@ -1,4 +1,4 @@
-﻿using Store.Models;
+﻿using Shop.Data.EF;
 
 namespace Store.ViewModels
 {

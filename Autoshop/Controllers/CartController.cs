@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Store.Repository;
-using Store.Models;
 using Store.ViewModels;
-using Store.interfaces;
-using Microsoft.AspNetCore.Razor.Hosting;
-using Microsoft.AspNetCore.Mvc.Routing;
-using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Shop.Domain;
+using Shop.Data.EF;
 
 namespace Store.Controllers
 {

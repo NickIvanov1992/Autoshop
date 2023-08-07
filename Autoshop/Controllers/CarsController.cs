@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
-using Store.interfaces;
-using Store.Models;
+using Shop.Domain;
 using Store.ViewModels;
 using System.Drawing;
 

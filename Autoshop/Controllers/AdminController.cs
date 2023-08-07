@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Store.interfaces;
-using Store.Models;
+using Shop.Domain;
 
 namespace Store.Controllers
 {

@@ -1,4 +1,4 @@
-﻿using Store.Models;
+﻿using Shop.Domain;
 
 namespace Store.ViewModels
 {

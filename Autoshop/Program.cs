@@ -1,13 +1,10 @@
-using Store.EF;
-using Store.interfaces;
 using System.Drawing.Text;
 using Microsoft.EntityFrameworkCore;
-using Store.Repository;
 using Microsoft.AspNetCore.Builder;
-using Store.Migrations;
-using Store.Models;
 using System.Runtime;
 using Microsoft.AspNetCore.Identity;
+using Shop.Data.EF;
+using Shop.Domain;
 
 var builder = WebApplication.CreateBuilder(args);
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -22,7 +19,7 @@ builder.Services.AddTransient<IAllCars, CarRepository>();
 builder.Services.AddTransient<ICarsCategory, CategoryRepository>();
 builder.Services.AddTransient<IAllOrders,OrdersRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-builder.Services.AddScoped(sp => Store.Models.StoreCart.GetCart(sp));
+builder.Services.AddScoped(sp => Shop.Data.EF.StoreCart.GetCart(sp));
 builder.Services.AddMemoryCache();
 
 builder.Services.AddSession(options =>

@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Store.interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
+using Shop.Domain;
 using Store.ViewModels;
 
 namespace Store.Controllers
