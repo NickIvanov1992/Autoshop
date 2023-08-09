@@ -4,7 +4,7 @@ using Shop.Domain;
 
 namespace Store.Controllers
 {
-    [Authorize(Roles = "admin")]
+    //[Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
         IAllCars allCars;
