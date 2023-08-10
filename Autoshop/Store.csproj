@@ -37,10 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\img\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\domain\Shop.Domain\Shop.Domain.csproj" />
     <ProjectReference Include="..\..\infrastructure.git\Shop.Memory\Shop.Data.EF.csproj" />
   </ItemGroup>

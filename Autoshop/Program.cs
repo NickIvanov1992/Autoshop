@@ -5,6 +5,7 @@ using System.Runtime;
 using Microsoft.AspNetCore.Identity;
 using Shop.Data.EF;
 using Shop.Domain;
+using Store.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -42,6 +43,9 @@ using (var scope = app.Services.CreateScope())
 {
     StoreDbContext storeDbContext = scope.ServiceProvider.GetRequiredService<StoreDbContext>();
     DBObjects.GetInitial(storeDbContext);
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+    var rolesManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        await RoleInitializer.InitializeAsync(userManager, rolesManager);
 }
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -59,3 +63,4 @@ app.MapControllerRoute(
     name: "CategoryFilter",
     pattern: "{controller=Cars}/{action}/{categ?}");
 app.Run();
+

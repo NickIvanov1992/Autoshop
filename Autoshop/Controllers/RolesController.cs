@@ -100,7 +100,7 @@ namespace Store.Controllers
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> Initialize()
+        public  async Task<IActionResult> Initialize()
         {
             await RoleInitializer.InitializeAsync(_userManager, _roleManager);
             return RedirectToAction("Index");
