@@ -6,18 +6,17 @@ namespace Store.Controllers
 {
     public class FavoriteController : Controller
     {
-        private readonly IAllCars carRepository;
-        public FavoriteController(IAllCars carRepository)
+        private readonly CarService carService;
+        public FavoriteController(CarService carService)
         {
-            this.carRepository = carRepository;
+            this.carService = carService;
         }
-        public ViewResult Index()
+        public async Task<ViewResult> Index()
         {
             var primaryCars = new FavoriteViewModel
             {
-                favoriteCars = carRepository.GetFavoriteCars.Where(x => x.Available > 0)   // есть ли авто в парке?
+                favoriteCars = await carService.GetFavouriteCars(),
             };
-
                 return View(primaryCars);
         }
 
