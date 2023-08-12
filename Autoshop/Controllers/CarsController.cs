@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using Shop.Domain;
@@ -14,49 +15,39 @@ namespace Store.Controllers
 
         private readonly IAllCars allCars;
         private readonly ICarsCategory carsCategories;
-        public CarsController(IAllCars allCars, ICarsCategory carsCategories, ILogger<CarsController> logger)
+        private readonly CarService carService;
+        public CarsController(IAllCars allCars, ICarsCategory carsCategories, ILogger<CarsController> logger,CarService carService)
         {
             this.allCars = allCars;
             this.carsCategories = carsCategories;
             this.logger = logger;
+            this.carService = carService;
         }
 
         [Route("Cars/Index")]
-        [Route("Cars/Index/{categ}")]
-        public ViewResult Index(string categ)
+        [Route("Cars/Index/{category}")]
+        public async Task<ViewResult> Index(string category)
         {
-
-            string category = categ;
-            IEnumerable<Car> cars =null;
             string currentCategory = "";
+            if (category == "cars")
+                 currentCategory = "Легковые";
 
-            if (string.IsNullOrEmpty(category))
-            {
-                cars = allCars.Cars.OrderBy(i => i.Id);
-            }
-            else
-            {
-                if (string.Equals("cars", category, StringComparison.OrdinalIgnoreCase))
-                {
-                    cars = allCars.Cars.Where(x => x.CategoryID == 2).OrderBy(x => x.Id);
-                    currentCategory = "Легковые";
-                }
-                else if (string.Equals("trucks", category, StringComparison.OrdinalIgnoreCase))
-                {
-                    cars = allCars.Cars.Where(x => x.CategoryID == 1).OrderBy(x => x.Id);
-                    currentCategory = "Грузовики";
-                }           
-            }
+            else if (category == "trucks")
+                  currentCategory = "Грузовики";
+
+
+            IEnumerable<Car> cars = await carService.GetAllCars(category);
+
             var carObj = new CarsListViewModel
             {
-                GetAllCars = cars.Where(x => x.Available > 0),   // есть ли авто в парке
-                CurrentCategory = currentCategory
+                GetAllCars = cars,
+                CurrentCategory = currentCategory,  
             };
 
-        ViewBag.Title = "Страница с автомобилями";
+            ViewBag.Title = "Страница с автомобилями";
             logger.LogInformation("Test Message");
             return View(carObj);
         }
-       
+
     }
 }

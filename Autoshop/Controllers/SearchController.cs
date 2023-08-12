@@ -6,35 +6,35 @@ namespace Store.Controllers
 {
     public class SearchController : Controller
     {
-        private readonly IAllCars allCars;
-        public SearchController(IAllCars allCars)
+        private readonly CarService carService;
+        public SearchController(CarService carService)
         {
-            this.allCars = allCars;
+            this.carService = carService;
         }
 
         [Route("Search/SearchResult")]
         [Route("Search/SearchResult/{carName}")]
-        public IActionResult Index(string carName)
+        public async Task<IActionResult> Index(string carName)
         {
             IEnumerable<Car> searchCars = null;
-            string searchResult = "";
 
-            if (string.IsNullOrEmpty(carName) )
+            if (string.IsNullOrWhiteSpace(carName))
             {
-                searchCars = allCars.Cars.OrderBy(i => i.Id);
-                searchResult = "Автомобиль отсутствует";
+                searchCars = await carService.GetAllCars();
+                ViewBag.Title = "Ничего не найдено!";
             }
-            else
+            else 
             {
-                searchCars = allCars.Cars.Where(x => x.Name.ToLower().Contains(carName.ToLower()) );
-                searchResult = "Результаты поиска";
+                searchCars = await carService.GetSearchCar(carName);
             }
+
             var carObj = new CarsListViewModel
             {
                 GetSearchCars = searchCars
             };
             return View(carObj);
         }
+
     }
 }
 

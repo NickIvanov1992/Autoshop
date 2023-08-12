@@ -14,9 +14,19 @@ namespace Store.Controllers
             this.storeCart = storeCart;
         }
 
-        public IActionResult Checkout()
+        //public async Task<IActionResult> Checkout()
+        //{
+        //    storeCart.ListItems = storeCart.GetStoreItems();
+        //    if (storeCart.ListItems.Count == 0)
+        //    {
+        //        ViewBag.Message = "Нет выбранных автомобилей";
+        //        return RedirectToAction("NoCars");
+        //    }
+        //    return View();
+        //}
+        public async Task<IActionResult> Checkout()
         {
-            storeCart.ListItems = storeCart.GetStoreItems();
+            storeCart.ListItems = await storeCart.GetStoreItems();
             if (storeCart.ListItems.Count == 0)
             {
                 ViewBag.Message = "Нет выбранных автомобилей";
@@ -25,10 +35,26 @@ namespace Store.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public IActionResult Checkout(Order order)
+        //    {
+        //    storeCart.ListItems = storeCart.GetStoreItems();
+        //    if (storeCart.ListItems.Count == 0)
+        //    {
+        //        ViewBag.Message = "Нет выбранных автомобилей";
+        //        return View();
+        //    }
+        //    if (ModelState.IsValid)
+        //    {
+        //        allOrders.CreateOrder(order);           
+        //        return RedirectToAction("Complete");
+        //    }
+        //    return View(order);
+        //    }
         [HttpPost]
-        public IActionResult Checkout(Order order)
-            {
-            storeCart.ListItems = storeCart.GetStoreItems();
+        public async Task<IActionResult> Checkout(Order order)
+        {
+            storeCart.ListItems = await storeCart.GetStoreItems();
             if (storeCart.ListItems.Count == 0)
             {
                 ViewBag.Message = "Нет выбранных автомобилей";
@@ -36,11 +62,11 @@ namespace Store.Controllers
             }
             if (ModelState.IsValid)
             {
-                allOrders.CreateOrder(order);           
+                allOrders.CreateOrder(order);
                 return RedirectToAction("Complete");
             }
             return View(order);
-            }
+        }
         public IActionResult Complete()
         {
             ViewBag.Message = "Заказ принят в обработку";

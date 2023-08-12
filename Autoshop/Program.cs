@@ -17,10 +17,11 @@ builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<Appl
 builder.Services.AddDbContext<StoreDbContext>(options => options.UseSqlServer(connection));
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IAllCars, CarRepository>();
+builder.Services.AddTransient<CarService>();
 builder.Services.AddTransient<ICarsCategory, CategoryRepository>();
 builder.Services.AddTransient<IAllOrders,OrdersRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-builder.Services.AddScoped(sp => Shop.Data.EF.StoreCart.GetCart(sp));
+builder.Services.AddScoped(sp => StoreCart.GetCart(sp));
 builder.Services.AddMemoryCache();
 
 builder.Services.AddSession(options =>
