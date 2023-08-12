@@ -16,7 +16,17 @@ namespace Store.Controllers
         [Route("Search/SearchResult/{carName}")]
         public async Task<IActionResult> Index(string carName)
         {
-            var searchCars = await carService.GetSearchCar(carName);
+            IEnumerable<Car> searchCars = null;
+
+            if (string.IsNullOrWhiteSpace(carName))
+            {
+                searchCars = await carService.GetAllCars();
+                ViewBag.Title = "Ничего не найдено!";
+            }
+            else 
+            {
+                searchCars = await carService.GetSearchCar(carName);
+            }
 
             var carObj = new CarsListViewModel
             {
