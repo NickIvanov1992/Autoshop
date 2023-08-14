@@ -12,12 +12,10 @@ namespace Store.Controllers
         {
             this.allCars = allCars;
         }
-
         public ViewResult Index()
         {
             return View(allCars.Cars);
-        }
-       
+        }    
         public ViewResult Edit(int Id)
         {
             Car car = allCars.Cars

@@ -13,17 +13,6 @@ namespace Store.Controllers
             this.allOrders = allOrders;
             this.storeCart = storeCart;
         }
-
-        //public async Task<IActionResult> Checkout()
-        //{
-        //    storeCart.ListItems = storeCart.GetStoreItems();
-        //    if (storeCart.ListItems.Count == 0)
-        //    {
-        //        ViewBag.Message = "Нет выбранных автомобилей";
-        //        return RedirectToAction("NoCars");
-        //    }
-        //    return View();
-        //}
         public async Task<IActionResult> Checkout()
         {
             storeCart.ListItems = await storeCart.GetStoreItems();
@@ -35,22 +24,6 @@ namespace Store.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public IActionResult Checkout(Order order)
-        //    {
-        //    storeCart.ListItems = storeCart.GetStoreItems();
-        //    if (storeCart.ListItems.Count == 0)
-        //    {
-        //        ViewBag.Message = "Нет выбранных автомобилей";
-        //        return View();
-        //    }
-        //    if (ModelState.IsValid)
-        //    {
-        //        allOrders.CreateOrder(order);           
-        //        return RedirectToAction("Complete");
-        //    }
-        //    return View(order);
-        //    }
         [HttpPost]
         public async Task<IActionResult> Checkout(Order order)
         {

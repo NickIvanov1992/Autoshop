@@ -60,8 +60,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Favorite}/{action=Index}/{id?}");
-app.MapControllerRoute(
-    name: "CategoryFilter",
-    pattern: "{controller=Cars}/{action}/{categ?}");
+
 app.Run();
 

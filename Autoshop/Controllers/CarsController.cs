@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Cors.Infrastructure;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
+﻿using Microsoft.AspNetCore.Mvc;
 using Shop.Domain;
 using Store.ViewModels;
-using System.Drawing;
+
 
 
 namespace Store.Controllers
@@ -34,7 +31,6 @@ namespace Store.Controllers
 
             else if (category == "trucks")
                   currentCategory = "Грузовики";
-
 
             IEnumerable<Car> cars = await carService.GetAllCars(category);
 
